@@ -35,7 +35,7 @@ header {
   height: 50px;
   width: 100%;
   color: white;
-  padding: 0 100px;
+  padding: 0 30px;
   /* overflow-y: hidden; */
 }
 
@@ -110,7 +110,7 @@ ul {
     position: absolute;
     background-color: #373a3c;
     justify-content: flex-start;
-    padding: 0 100px;
+    padding: 0 30px;
     width: 100%;
     z-index: -1;
   }

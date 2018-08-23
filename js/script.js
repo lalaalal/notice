@@ -16,7 +16,7 @@ $(function() {
 });
 
 $(window).resize(function() {
- if ($('header').width() > 650 ) {
+ if ($('header').width() > 850 ) {
    $('.link').css('opacity', '1');
    $('.link').css('visibility', 'visible');
  } else {
