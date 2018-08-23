@@ -67,7 +67,7 @@ ul {
   color: gray;
 }
 .link:hover {
-  color: white;
+  color: white !important;
 }
 .menu:not(:last-child)::after {
   content: '|';
@@ -79,10 +79,21 @@ ul {
   content: '\e801';
 }
 
+.icon {
+  font-size: 14px;
+  color: gray;
+  user-select: none;
+}
 .icon::after {
+  margin: 7px;
+  transition-duration: 0.4s;
   font-family: fontello;
   content: none;
   color: gray;
+}
+.icon:hover::after, .icon:hover {
+  cursor: grabbing;
+  color: white !important;
 }
 
 @media screen and (max-width: 850px) {
@@ -95,6 +106,7 @@ ul {
 
   }
   nav {
+    transition-property: top;
     position: absolute;
     background-color: #373a3c;
     justify-content: flex-start;
@@ -103,7 +115,8 @@ ul {
     z-index: -1;
   }
   .link {
-    color: transparent;
+    opacity: 0;
+    visibility: hidden;
   }
   ul {
     margin: 0;
