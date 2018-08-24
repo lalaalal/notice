@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+#header_wrapper {
+  transition-property: all;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #373a3c;
+  height: 50px;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  color: white;
+  padding: 0 30px;
+  /* overflow-y: hidden; */
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 50px;
+  color: white;
+}
+
+#title {
+  font-size: 18px;
+  user-select: none;
+  margin: 10px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0 500px 0 10px;
+}
+.menu, .link {
+  margin-right: 10px;
+  color: gray;
+}
+.link:hover {
+  color: white !important;
+}
+.menu:not(:last-child)::after {
+  content: '|';
+}
+
+:not(.menu) > .link::before {
+  margin: 0 10px;
+  font-family: fontello;
+  content: '\e801';
+}
+
+.icon {
+  font-size: 14px;
+  color: gray;
+  user-select: none;
+}
+.icon::after {
+  margin: 10px;
+  transition-duration: 0.4s;
+  font-family: fontello;
+  content: none;
+  color: gray;
+}
+.icon:hover::after, .icon:hover {
+  cursor: grabbing;
+  color: white !important;
+}
+
+@media screen and (max-width: 940px) {
+  header {
+    justify-content: space-between;
+    z-index: 1;
+  }
+  nav {
+    transition-property: top;
+    position: absolute;
+    justify-content: flex-start;
+    padding: 0 30px;
+    width: 100%;
+    z-index: -1;
+  }
+  .link {
+    opacity: 0;
+    visibility: hidden;
+  }
+  ul {
+    margin: 0 0 0 10px;
+  }
+  .icon::after {
+    content: '\e800';
+  }
+}
