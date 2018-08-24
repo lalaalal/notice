@@ -1,0 +1,17 @@
+CREATE DATABASE notice;
+use notice;
+
+CREATE TABLE admin (
+  `no` INT NOT NULL AUTO_INCREMENT,
+  `id` VARCHAR(24) NOT NULL,
+  `pw` VARCHAR(64) NOT NULL,
+  PRIMARY KEY(no, id)
+);
+
+CREATE TABLE board (
+  `no` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `body` TEXT,
+  `date` DATETIME NOT NULL DEFAULT NOW(),
+  PRIMARY KEY(no)
+);
