@@ -89,21 +89,24 @@ ul {
     z-index: 1;
   }
   nav {
-    transition-property: top;
+    transition-property: all;
     position: absolute;
     justify-content: flex-start;
     padding: 0 30px;
     width: 100%;
     z-index: -1;
-  }
-  .link {
     opacity: 0;
-    visibility: hidden;
   }
   ul {
     margin: 0 0 0 10px;
   }
   .icon::after {
     content: '\e800';
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .link {
+    font-size: 14px;
   }
 }
