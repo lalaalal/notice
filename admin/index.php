@@ -5,5 +5,6 @@ if (!isset($_SESSION['id'])) {
   header("Location: /admin/login.php");
 } else {
   $sign = 'logout';
-  require($_SERVER['DOCUMENT_ROOT']."index.php");
+  $admin = "/admin";
+  require($_SERVER['DOCUMENT_ROOT']."/index.php");
 }

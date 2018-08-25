@@ -1,5 +1,6 @@
-CREATE USER `notice`@`localhost` IDENTIFIED BY 'isdj_18_107_notice#';
-GRANT SELECT, INSERT, DELETE, UPDATE on notice.* to `notice`@`localhost` IDENTIFIED BY 'isdj_18_107_notice#';
+SET GLOBAL validate_password_policy=LOW;
+CREATE USER 'notice'@'localhost' IDENTIFIED BY 'isdj_18_107_notice';
+GRANT SELECT, INSERT, DELETE, UPDATE on notice.* to 'notice'@'localhost' IDENTIFIED BY 'isdj_18_107_notice';
 
 CREATE DATABASE notice;
 use notice;
@@ -15,6 +16,8 @@ CREATE TABLE board (
   `no` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(100) NOT NULL,
   `body` TEXT,
+  `sub` VARCHAR(16),
+  `start` DATETIME NULL,
   `deadline` DATETIME NOT NULL,
   `tyle` CHAR(16) NOT NULL,
   `date` DATETIME NOT NULL DEFAULT NOW(),
