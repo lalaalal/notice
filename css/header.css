@@ -63,22 +63,15 @@ ul {
 :not(.menu) > .link::before {
   margin: 0 10px;
   font-family: fontello;
-  content: '\e801';
+  content: '\e800';
 }
 
-.icon {
-  font-size: 14px;
-  color: gray;
-  user-select: none;
-}
-.icon::after {
-  margin: 10px;
+.icon_menu::after {
   transition-duration: 0.4s;
-  font-family: fontello;
   content: none;
   color: gray;
 }
-.icon:hover::after, .icon:hover {
+.icon_menu:hover::after, .icon_menu:hover {
   cursor: grabbing;
   color: white !important;
 }
@@ -101,8 +94,8 @@ ul {
   ul {
     margin: 0 0 0 10px;
   }
-  .icon::after {
-    content: '\e800';
+  .icon_menu::after {
+    content: '\f0c9';
   }
 }
 

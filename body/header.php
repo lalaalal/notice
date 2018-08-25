@@ -1,7 +1,7 @@
 <div id="header_wrapper">
   <header>
     <span id="title" onclick="location.href='<?= $admin ?>/index.php'">7반 알림장</span>
-    <span class="icon"></span>
+    <span class="icon icon_menu"></span>
     <nav>
       <ul>
         <li class="menu">

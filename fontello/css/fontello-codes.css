@@ -1,3 +1,6 @@
 
-.icon-menu:before { content: '\e800'; } /* '' */
-.icon-login:before { content: '\e801'; } /* '' */
+.icon-login:before { content: '\e800'; } /* '' */
+.icon-pencil:before { content: '\e801'; } /* '' */
+.icon-plus:before { content: '\e802'; } /* '' */
+.icon-github-circled:before { content: '\f09b'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */

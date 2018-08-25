@@ -19,5 +19,8 @@ if (!isset($req)) $req = "home";
     require($_SERVER['DOCUMENT_ROOT']."/body/header.php");
     require($_SERVER['DOCUMENT_ROOT']."/body/{$req}.php");
     ?>
+    <footer>
+      <a class="icon git" href="https://github.com/lalaalal/notice" target="_blank">GitHub</a>
+    </footer>
   </body>
 </html>

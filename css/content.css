@@ -8,11 +8,41 @@
   width: 100%;
 }
 
+#notice {
+  background-color: #ebddf1 !important;
+}
+
 .content {
   margin: 5px 0;
   padding: 10px;
   width: 850px;
   background-color: #eee;
+}
+
+.title_area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon_area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit::after {
+  font-size: 14px;
+  content: '\e801';
+}
+.add::after {
+  font-size: 14px;
+  content: '\e802';
+}
+.edit:hover, .add:hover {
+  color: black !important;
 }
 
 @media screen and (max-width: 940px) {

@@ -7,16 +7,34 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "jh3jpcb1t1bcm80gidkadilh080aq79h",
+      "uid": "559647a6f430b3aeadbecd67194451dd",
       "css": "menu",
-      "code": 59392,
-      "src": "typicons"
+      "code": 61641,
+      "src": "fontawesome"
     },
     {
       "uid": "3a00327e61b997b58518bd43ed83c3df",
       "css": "login",
-      "code": 59393,
+      "code": 59392,
       "src": "fontawesome"
+    },
+    {
+      "uid": "0f6a2573a7b6df911ed199bb63717e27",
+      "css": "github-circled",
+      "code": 61595,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "62b0580ee8edc3a3edfbf68a47c852d5",
+      "css": "pencil",
+      "code": 59393,
+      "src": "elusive"
+    },
+    {
+      "uid": "1gf923f9wvaezxmfon515dglxa3drf0e",
+      "css": "plus",
+      "code": 59394,
+      "src": "typicons"
     }
   ]
 }

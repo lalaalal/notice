@@ -1,10 +1,9 @@
 <?php
 if (isset($_POST['id'])) {
   $mysqli = mysqli_connect("localhost", "notice", "isdj_18_107_notice", "notice");
-  $query = "SELECT * FROM admin WHERE id='{$_POST['id']}'";
+  $query = "SELECT * FROM admin WHERE BINARY id='{$_POST['id']}'";
   $res = $mysqli->query($query);
 
-  var_dump($query);
   if ($res->num_rows == 1) {
     $row = mysqli_fetch_assoc($res);
     if (password_verify($_POST['pw'], $row['pw'])) {
@@ -14,8 +13,9 @@ if (isset($_POST['id'])) {
       header('Location: /admin/index.php');
       exit();
     }
-    $res = "일치하는 정보가 없습니다.";
   }
+  $res = "일치하는 정보가 없습니다.";
+  $req = "login";
 } else {
   $rew = "";
   $req = "login";
