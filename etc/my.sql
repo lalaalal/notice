@@ -1,3 +1,6 @@
+CREATE USER `notice`@`localhost` IDENTIFIED BY 'isdj_18_107_notice#';
+GRANT SELECT, INSERT, DELETE, UPDATE on notice.* to `notice`@`localhost` IDENTIFIED BY 'isdj_18_107_notice#';
+
 CREATE DATABASE notice;
 use notice;
 
@@ -12,6 +15,17 @@ CREATE TABLE board (
   `no` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(100) NOT NULL,
   `body` TEXT,
+  `deadline` DATETIME NOT NULL,
+  `tyle` CHAR(16) NOT NULL,
   `date` DATETIME NOT NULL DEFAULT NOW(),
+  PRIMARY KEY(no)
+);
+
+//future
+
+CREATE TABLE class (
+  `no` INT NOT NULL AUTO_INCREMENT,
+  `grade` INT NOT NULL,
+  `room` INT NOT NULL,
   PRIMARY KEY(no)
 );

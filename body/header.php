@@ -1,6 +1,6 @@
 <div id="header_wrapper">
   <header>
-    <span id="title">7반 알림장</span>
+    <span id="title" onclick="location.href='/index.php'">7반 알림장</span>
     <span class="icon"></span>
     <nav>
       <ul>

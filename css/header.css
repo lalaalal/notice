@@ -89,11 +89,12 @@ ul {
     z-index: 1;
   }
   nav {
-    transition-property: all;
+    transition-property: top, opacity;
     position: absolute;
     justify-content: flex-start;
     padding: 0 30px;
     width: 100%;
+    visibility: hidden;
     z-index: -1;
     opacity: 0;
   }
