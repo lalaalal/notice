@@ -12,6 +12,16 @@ CREATE TABLE admin (
   PRIMARY KEY(no, id)
 );
 
+CREATE TABLE category (
+  `no` INT NOT NULL AUTO_INCREMENT,
+  `name` CHAR(8) NOT NULL,
+  PRIMARY KEY(no)
+);
+
+INSERT INTO category (name) VALUES ("숙제");
+INSERT INTO category (name) VALUES ("준비물");
+INSERT INTO category (name) VALUES ("수행평가");
+
 CREATE TABLE board (
   `no` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(100) NOT NULL,
@@ -23,8 +33,6 @@ CREATE TABLE board (
   `date` DATETIME NOT NULL DEFAULT NOW(),
   PRIMARY KEY(no)
 );
-
-//future
 
 CREATE TABLE class (
   `no` INT NOT NULL AUTO_INCREMENT,
