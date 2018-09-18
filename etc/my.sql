@@ -26,10 +26,8 @@ CREATE TABLE board (
   `no` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(100) NOT NULL,
   `body` TEXT,
-  `sub` VARCHAR(16),
   `start` DATETIME NULL,
   `deadline` DATETIME NOT NULL,
-  `tyle` CHAR(16) NOT NULL,
   `date` DATETIME NOT NULL DEFAULT NOW(),
   PRIMARY KEY(no)
 );
