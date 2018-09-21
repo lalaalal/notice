@@ -1,8 +1,8 @@
 <?php
 
-$insert = "(title, body, ".(!is_null($_POST['start'])) ? "" : "start, "."deadline";
-
-
+if ($_POST['start'] == NULL) {
+  $_POST['start'] = 'NULL';
+}
 
 $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
 $query = "INSERT INTO board (title, body, start, deadline)

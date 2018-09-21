@@ -28,7 +28,7 @@ if ($res->num_rows == 0) {
     <form action="insert.php" method="post">
       <p><input type="text" name="title" value=""></p>
       <p><textarea name="body" rows="8" cols="80"></textarea></p>
-      <p><input type="datetime" name="start" value=""><input type="datetime" name="deadline" value=""></p>
+      <p><input type="datetim" name="start" value=""><input type="datetime" name="deadline" value=""></p>
       <input type="submit" name="" value="">
     </form>
   </body>
