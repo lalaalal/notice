@@ -85,13 +85,14 @@ main {
   display: grid;
   grid-row-gap: 10px;
   background-color: #ddd;
-  font-size: 15px;
+  font-size: 14px;
   padding: 10px;
 }
 .date {
   color: #777;
   text-align: right;
   grid-column: 2/3;
+  font-size: 14px;
 }
 .content {
   margin-top: 5px;
@@ -99,10 +100,12 @@ main {
 
 .notice {
   background-color: #ebddf1 !important;
+  font-size: 16px;
 }
 
 .head {
   background-color: #d9f0d1;
+  font-size: 16px;
 }
 
 /* footer */

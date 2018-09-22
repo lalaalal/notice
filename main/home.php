@@ -18,7 +18,7 @@ $result = $mysqli->query($query);
     $content = mysqli_fetch_assoc($result);
     articleTitle($title = '오늘의 알림장', $content['date'], $type = 'head');
     for ($i = 0; $i < $result->num_rows; $i++) {
-      articleContent($content['title'], $content['category'], $content['body']);
+      articleContent($content);
       $content = mysqli_fetch_assoc($result);
     }
     ?>
