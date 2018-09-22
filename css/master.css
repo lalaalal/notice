@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -30,23 +30,34 @@ header {
   color: white;
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  width: 600px;
+}
+
+.login_icon {
+  width: 18px;
+  user-select: none;
+}
+
 .title {
   opacity: 1 !important;
 }
 .tile {
+  display: flex;
+  align-items: center;
   opacity: 0.4;
   margin: 15px;
   cursor: default;
   user-select: none;
 }
 .tile:hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
-.search {
-  margin-left: 200px;
-}
-.search > .tile {
+/* TODO:  */
+/* .search > .tile {
   margin-left: 5px;
 }
 
@@ -61,6 +72,9 @@ input[type="text"] {
   border-bottom: 1px solid white;
   opacity: .6;
 }
+input[type="submit"] {
+  opacity: .4;
+} */
 
 /* article */
 
@@ -69,10 +83,7 @@ article:not(:first-child) {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
+  display: grid;
   width: 850px;
   margin-top: 25px;
   padding: 15px;
@@ -81,7 +92,6 @@ main {
 }
 
 .article_tile {
-  flex-grow: 1;
   display: grid;
   grid-row-gap: 10px;
   background-color: #ddd;
@@ -117,6 +127,7 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 16px;
+  color: black;
 }
 .git::before {
   transition-duration: 0.4s;
@@ -135,3 +146,5 @@ img {
   width: 22px;
   margin-right: 10px;
 }
+
+/* login */
