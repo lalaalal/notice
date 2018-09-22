@@ -5,8 +5,8 @@ if ($_POST['start'] == NULL) {
 }
 
 $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
-$query = "INSERT INTO board (title, body, start, deadline)
-          VALUES (\"{$_POST['title']}\", \"{$_POST['body']}\", {$_POST['start']}, {$_POST['deadline']})";
+$query = "INSERT INTO board (title, body, start, deadline, category_id)
+          VALUES (\"{$_POST['title']}\", \"{$_POST['body']}\", {$_POST['start']}, {$_POST['deadline']}, 1)";
 $mysqli->query($query);
 
 echo $query.'<br>';
