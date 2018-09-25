@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
 $query = "SELECT * FROM category";
 $result = $mysqli->query($query);
@@ -26,18 +28,18 @@ if (!isset($_GET['page'])) {
 <?php
 for ($i = 0; $i < $result->num_rows; $i++) {
   $category = mysqli_fetch_assoc($result);
-  echo "      <span class=\"tile\"><a href=\"?page={$category['id']}\">{$category['name']}</a></span>\n";
+  echo "        <span class=\"tile\"><a href=\"?page=search&category={$category['id']}\">{$category['name']}</a></span>\n";
 }
 ?>
+        <span class="tile"><a href="?page=schedule">시간표</a></span>
       </nav>
       <span class="tile">
         <img class="login_icon" src="/images/login.svg" alt="login">
-        <a href="?page=login">반장 로그인</a>
+        <?php
+        if (isset($_SESSION['id'])) echo "<a href=\"/logout.php\">로그아웃</a>\n";
+        else echo "<a href=\"/?page=login\">반장 로그인</a>\n";
+        ?>
       </span>
-      <!-- <form class="search" action="#" method="post">
-        <input class="tile" type="text" name="search" placeholder="검색어를 입력하세요." autocomplete="off">
-        <input class="tile" type="submit" value="검색">
-      </form> -->
     </header>
 <?php require("./main/$proc.php") ?>
     <footer>

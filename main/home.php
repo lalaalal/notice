@@ -16,10 +16,17 @@ $result = $mysqli->query($query);
   <article class="">
     <?php
     $content = mysqli_fetch_assoc($result);
-    articleTitle($title = '오늘의 알림장', $content['date'], $type = 'head');
-    for ($i = 0; $i < $result->num_rows; $i++) {
-      articleContent($content);
-      $content = mysqli_fetch_assoc($result);
+    articleTitle($title = '오늘의 알림장', date("Y-m-d"));
+    if ($result->num_rows == 0) {
+      echo "
+    <div class=\"content article_tile\">
+      <b class=\"title\">알림이 없습니다!</b>
+    </div>\n";
+    } else {
+      for ($i = 0; $i < $result->num_rows; $i++) {
+        articleContent($content);
+        $content = mysqli_fetch_assoc($result);
+      }
     }
     ?>
   </article>

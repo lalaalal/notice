@@ -1,5 +1,5 @@
 <?php
-function articleTitle($title, $date, $type) {
+function articleTitle($title, $date, $type = "head") {
   echo "
     <div class=\"$type article_tile\">
       <div class=\"title\"><b>$title</b></div>
@@ -16,4 +16,15 @@ function articleContent($content) {
       {$content['start']} 부터 {$content['deadline']} 까지
     </div>\n";
 }
+
+function isAdmin() {
+  session_start();
+  if (isset($_SESSION['id'])) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 ?>
+<a href="#"></a>
