@@ -1,8 +1,7 @@
 RewriteEngine On
 
-RewriteCond %{HTTP_REFERER} !^(https?:\/\/)?(www.)?isdj\.ga/ [NC]
-RewriteCond %{HTTP_REFERER} !^$
-RewriteRule add_admin.php$ - [F]
+RewriteCond %{HTTP_REFERER} !^(https?:\/\/)?isdj\.ga/ [NC]
+RewriteRule add_admin.php - [F]
 
-RewriteRule (schedule|login|home|admin/[a-z]*)$ /index.php?page=$1 [L,PT]
-RewriteRule ^([^/(css|image)]*)/([^/]*)?(.*) /index.php?page=$1&category=$2?$3 [PT]
+RewriteRule (schedule|login|home|admin/[a-z]*)$ /index\.php\?page=$1 [L,PT]
+RewriteRule ^([^/(css|image)]*)/([^/]*)?(.*) /index\.php?page=$1&category=$2?$3 [PT]
