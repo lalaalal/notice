@@ -20,11 +20,11 @@ CREATE TABLE board (
 CREATE TABLE subject (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` CHAR(8),
-  PRIMARY KEY(no)
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE category (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` CHAR(8),
-  PRIMARY KEY(no)
+  PRIMARY KEY(id)
 );
