@@ -13,5 +13,5 @@ if ($result->num_rows == 1) {
     $_SESSION['id'] = $_POST['id'];
   }
 }
-header("Location: index.php");
+header("Location: /home");
 ?>

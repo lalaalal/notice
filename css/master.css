@@ -56,26 +56,6 @@ nav {
   opacity: 1 !important;
 }
 
-/* TODO:  */
-/* .search > .tile {
-  margin-left: 5px;
-}
-
-input {
-  font-size: 15px;
-  color: white;
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-}
-input[type="text"] {
-  border-bottom: 1px solid white;
-  opacity: .6;
-}
-input[type="submit"] {
-  opacity: .4;
-} */
-
 /* article */
 
 article:not(:first-child) {
@@ -116,6 +96,15 @@ main {
 .head {
   background-color: #d9f0d1;
   font-size: 16px;
+}
+
+.admin_tile {
+  margin: 10px;
+  color: gray;
+  font-weight: 500;
+}
+.admin_tile:hover {
+  color: black;
 }
 
 /* footer */

@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule (schedule|login|home|admin/[a-z]*)$ /index.php?page=$1 [L,PT]
+RewriteRule ^([^/]*)/([^/]*)?(.*) /index.php?page=$1&category=$2?$3 [PT]

@@ -1,10 +1,11 @@
 <?php
 include "./lib/func.php";
 
-$mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
-$query = "SELECT no, title, body, category_id, name AS category, start, deadline, DATE(date) as date
-          FROM board LEFT JOIN category
-          ON category_id = id
+// $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
+$query = "SELECT no, title, subject.name AS subject, body, category.name AS category, start, deadline, DATE(date) as date
+          FROM board
+          LEFT JOIN category ON category_id = category.id
+          LEFT JOIN subject ON subject_id = subject.id
           WHERE DATE(date) = CURDATE()";
 
 $result = $mysqli->query($query);
