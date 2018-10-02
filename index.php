@@ -20,7 +20,11 @@ if (!isset($_GET['page'])) {
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
     <meta name="description" content="일산 대진 고등학교 1학년 7반 알림장">
+    <meta name="keywords" content="대진고, 알림장, 7반">
+    <meta name="author" content="협창쓰">
+    <meta name="language" content="ko">
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
     <title>7반 알림장</title>
   </head>

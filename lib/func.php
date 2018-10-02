@@ -11,7 +11,7 @@ function isAdmin() {
 
 function articleTitle($title, $date, $type = "head") {
   if (isAdmin() && $type == "head") {
-    $insert = "<a class=\"admin_tile\" href=\"/admin/query?type=add\">추가</a>";
+    $insert = "<a class=\"admin_tile\" href=\"/admin/query/add\">추가</a>";
   }
   echo "
     <div class=\"$type article_tile\">

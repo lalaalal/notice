@@ -21,7 +21,7 @@ $result = $mysqli->query($query);
     if ($result->num_rows == 0) {
       echo "
     <div class=\"content article_tile\">
-      <b class=\"title\">알림이 없습니다!</b>
+      알림이 없습니다!
     </div>\n";
     } else {
       for ($i = 0; $i < $result->num_rows; $i++) {
