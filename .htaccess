@@ -1,6 +1,10 @@
 RewriteEngine On
 
-RewriteCond %{SERVER_NAME} ^(www.)?isdj.ga [NC]
+ErrorDocument 403 /etc/403.html
+ErrorDocument 404 /etc/404.html
+
+
+RewriteCond %{SERVER_NAME} ^[^(localhost)] [NC]
 RewriteRule add_admin.php - [F]
 
 RewriteRule ^(admin\/[a-z]+|[a-z]+)\/?([a-z0-9]+)?$ \/index.php?page=$1&param=$2 [PT]

@@ -10,6 +10,8 @@ if (!isset($_GET['page'])) {
 } else {
   $proc = $_GET['page'];
 }
+// echo $_GET['page'];
+// echo $_GET['param'];
 ?>
 
 <!DOCTYPE html>
