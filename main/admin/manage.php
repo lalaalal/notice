@@ -5,23 +5,42 @@ if (!isAdmin()) {
   header("Location: /login");
 }
 
-$query = "SELECT * FROM subject";
-$result = $mysqli->query($query);
-for ($i = 0; $i < $result->num_rows; $i++) {
-  $subject = mysqli_fetch_assoc($result);
-  echo $_POST['query'];
-}
+
+
 ?>
 
-
-<main>
-  <?php articleTitle($title = '관리자 페이지', $date = ""); ?>
-  <form class="content article_tile" action="#" method="post">
-    <input type="checkbox" name="" value="">
-    <input type="checkbox" name="" value="">
-    <input type="checkbox" name="" value="">
-    <button type="submit" name="query" value="insert">추가</button>
-    <input type="submit" name="query" value="수정">
-    <a href="/logout.php">logout</a>
-  </form>
+<main id="short_wrapper">
+  <article class="">
+<?php articleTitle($title = '관리자 페이지', $right = "", $type = "notice"); ?>
+    <form class="content article_tile" action="/admin/query/4" method="post">
+      <select class="" name="category">
+  <?php
+  $category = get_table($mysqli, $type = "category");
+  for ($row = 0; $row < sizeof($category) ; $row++) {
+    echo "      <option value=\"{$category[$row]['id']}\">{$category[$row]['name']}</option>\n";
+  }
+  ?>
+      </select>
+      <button type="submit" name="delete" value="category">삭제</button>
+      <select class="" name="subject">
+<?php
+$subject = get_table($mysqli, $type = "subject");
+for ($row = 0; $row < sizeof($subject) ; $row++) {
+  echo "      <option value=\"{$subject[$row]['id']}\">{$subject[$row]['name']}</option>\n";
+}
+?>
+      </select>
+      <button type="submit" name="delete" value="subject">삭제</button>
+    </form>
+    <form class="content article_tile" action="/admin/query/3" method="post">
+      <input type="text" name="name">
+      <div class="">
+        <button type="submit" name="add" value="category">종류 추가</button>
+        <button type="submit" name="add" value="subject">과목 추가</button>
+      </div>
+    </form>
+  </article>
+  <article class="">
+    <a class="button" href="/logout.php"><button type="button" >로그아웃</button></a>
+  </article>
 </main>

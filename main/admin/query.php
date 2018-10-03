@@ -2,46 +2,48 @@
 require($_SERVER['DOCUMENT_ROOT'].'/lib/func.php');
 
 if (!isAdmin()) {
-  header("Location: index.php?page=login");
+  header("Location: /home");
 }
-?>
-<main>
-  <article>
-    <div class="head article_tile">
-      <div class="title"><b>내용 추가</b></div>
-    </div>
-    <form class="content article_tile" action="login.php" method="post">
-      <b class="title">제목</b>
-      <input type="text" name="title" placeholder="제목을 입력하세요." required>
-      <b class="title">과목</b>
-      <select class="" name="subject_id">
-<?php
-$query = "SELECT * FROM subject";
+
+switch ($_GET['param']) {
+  case '3':
+    $query = "INSERT INTO {$_POST['add']} (name) VALUES (\"{$_POST['name']}\")";
+    break;
+  case '4':
+    $query = "DELETE FROM {$_POST['delete']} WHERE id = {$_POST[$_POST['delete']]}";
+    break;
+  default:
+    $pattern = "/(\d{4})-(\d{2})-(\d{2})/";
+
+    $_POST['start'] = preg_replace($pattern, "$1$2$3", $_POST['start']);
+    $_POST['deadline'] = preg_replace($pattern, "$1$2$3", $_POST['deadline']);
+
+    // $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
+    $query = "INSERT INTO board (title, subject_id, category_id, body, start, deadline)
+              VALUES (
+                \"{$_POST['title']}\",
+                \"{$_POST['subject_id']}\",
+                \"{$_POST['category_id']}\",
+                \"{$_POST['body']}\",
+                \"{$_POST['start']}\",
+                \"{$_POST['deadline']}\"
+              )";
+    break;
+}
+// echo $query;
+// exit();
 $result = $mysqli->query($query);
-for ($i = 0; $i < $result->num_rows; $i++) {
-  $category = mysqli_fetch_assoc($result);
-  echo "        <option value=\"{$category['id']}\">{$category['name']}</option>\n";
-}
 ?>
-      </select>
-      <b class="title">종류</b>
-      <select class="" name="category_id">
+
+<main id="short_wrapper">
 <?php
-$query = "SELECT * FROM category";
-$result = $mysqli->query($query);
-for ($i = 0; $i < $result->num_rows; $i++) {
-  $category = mysqli_fetch_assoc($result);
-  echo "        <option value=\"{$category['id']}\">{$category['name']}</option>\n";
+if ($result == TRUE) {
+  articleTitle($title = "성공적으로 처리되었습니다!", $date = "", $type = "notice");
+} else {
+  articleTitle($title = "문제가 발생했습니다!", $date = "", $type = "notice");
 }
 ?>
-      </select>
-      <b class="title">내용</b>
-      <textarea name="body" rows="12" style="resize: none"></textarea>
-      <input type="file" name="">
-      <b class="title">시작, 마감</b>
-      <input type="datetime" name="" value="<?= date('Ymd') ?>" placeholder="yyyy-mm-dd">
-      <input type="datetime" name="" placeholder="yyyymmdd" required>
-      <input type="submit" value="완성한다!">
-    </form>
+  <article class="">
+    <a href="<?= $_SERVER['HTTP_REFERER'] ?>"><button type="button" name="button">돌아가기</button></a>
   </article>
 </main>

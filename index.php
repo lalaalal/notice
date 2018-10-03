@@ -10,8 +10,6 @@ if (!isset($_GET['page'])) {
 } else {
   $proc = $_GET['page'];
 }
-// echo $_GET['page'];
-// echo $_GET['param'];
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +22,7 @@ if (!isset($_GET['page'])) {
     <meta name="author" content="협창쓰">
     <meta name="language" content="ko">
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="manifest" href="/fav/manifest.json">
     <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
     <title>7반 알림장</title>
@@ -32,12 +31,14 @@ if (!isset($_GET['page'])) {
     <header>
       <div class="title tile"><a href="/home">7반 알림장</a></div>
       <nav>
+<!-- category tiles -->
 <?php
 for ($i = 0; $i < $result->num_rows; $i++) {
   $category = mysqli_fetch_assoc($result);
   echo "        <span class=\"tile\"><a href=\"/search/{$category['id']}\">{$category['name']}</a></span>\n";
 }
 ?>
+<!-- category tiles -->
         <span class="tile"><a href="/schedule">시간표</a></span>
       </nav>
       <span class="tile">
@@ -48,12 +49,14 @@ for ($i = 0; $i < $result->num_rows; $i++) {
         ?>
       </span>
     </header>
+<!-- main -->
 <?php
 $res = include($_SERVER['DOCUMENT_ROOT']."/main/$proc.php");
 if ($res == FALSE) {
   header("Location: /404");
 }
 ?>
+<!-- main -->
     <footer>
       <a class="git" href="https://github.com/lalaalal/notice" target="_blank">
         <img src="/images/github.svg" alt="github">

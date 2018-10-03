@@ -6,18 +6,19 @@ if ($_POST['id'] != '') {
   $result = $mysqli->query($query);
   if ($result->num_rows == 1) {
     echo "already exist<br>";
-  }
-
-  $hashed_pw = password_hash($_GET['pw'], PASSWORD_DEFAULT);
-  $query = "INSERT INTO admin (id, pw) VALUES (\"{$_POST['id']}\", \"{$hashed_pw}\")";
-  if ($mysqli->query($query)) {
-    echo "sign up success<br>
-          <a href=\"/\">Go Back</a>";
   } else {
-    echo "sign up failed<br>";
+    $hashed_pw = password_hash($_POST['pw'], PASSWORD_DEFAULT);
+    $query = "INSERT INTO admin (id, pw) VALUES (\"{$_POST['id']}\", \"{$hashed_pw}\")";
+    if ($mysqli->query($query)) {
+      echo $_POST['id']."<br>";
+      echo $_POST['pw']."<br>";
+      echo "sign up success<br>
+            <a href=\"/\">Go Back</a>";
+    } else {
+      echo "sign up failed<br>";
+    }
   }
 }
-
 ?>
 
 <!DOCTYPE html>

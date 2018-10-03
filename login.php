@@ -6,12 +6,14 @@ $result = $mysqli->query($query);
 
 if ($result->num_rows == 1) {
   $row = mysqli_fetch_assoc($result);
-  var_dump($row);
   if (password_verify($_POST['pw'], $row['pw'])) {
-    echo "success";
+    echo "success<br>";
     session_start();
     $_SESSION['id'] = $_POST['id'];
+    header("Location: /home");
   }
+} else {
+  echo "No match id<br>";
 }
-header("Location: /home");
+echo "<a href=\"/home\">Go Back<a>";
 ?>
