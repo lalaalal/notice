@@ -1,5 +1,5 @@
 <?php
-include "./lib/func.php";
+require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
 
 // $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
 $query = "SELECT no, title, subject.name AS subject, body, category.name AS category, start, deadline, DATE(date) as date

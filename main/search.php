@@ -1,5 +1,5 @@
 <?php
-include './lib/func.php';
+require($_SERVER['DOCUMENT_ROOT'].'/lib/func.php');
 ?>
 
 <main>

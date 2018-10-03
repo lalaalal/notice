@@ -48,7 +48,12 @@ for ($i = 0; $i < $result->num_rows; $i++) {
         ?>
       </span>
     </header>
-<?php require("./main/$proc.php") ?>
+<?php
+$res = include($_SERVER['DOCUMENT_ROOT']."/main/$proc.php");
+if ($res == FALSE) {
+  header("Location: /404");
+}
+?>
     <footer>
       <a class="git" href="https://github.com/lalaalal/notice" target="_blank">
         <img src="/images/github.svg" alt="github">
