@@ -4,9 +4,6 @@ require($_SERVER['DOCUMENT_ROOT'].'/lib/func.php');
 if (!isAdmin()) {
   header("Location: /login");
 }
-
-
-
 ?>
 
 <main id="short_wrapper">
@@ -14,6 +11,7 @@ if (!isAdmin()) {
 <?php articleTitle($title = '관리자 페이지', $right = "", $type = "notice"); ?>
     <form class="content article_tile" action="/admin/query/4" method="post">
       <select class="" name="category">
+        <option value="">--종류--</option>
   <?php
   $category = get_table($mysqli, $type = "category");
   for ($row = 0; $row < sizeof($category) ; $row++) {
@@ -23,6 +21,7 @@ if (!isAdmin()) {
       </select>
       <button type="submit" name="delete" value="category">삭제</button>
       <select class="" name="subject">
+        <option value="">--과목--</option>
 <?php
 $subject = get_table($mysqli, $type = "subject");
 for ($row = 0; $row < sizeof($subject) ; $row++) {
@@ -33,7 +32,7 @@ for ($row = 0; $row < sizeof($subject) ; $row++) {
       <button type="submit" name="delete" value="subject">삭제</button>
     </form>
     <form class="content article_tile" action="/admin/query/3" method="post">
-      <input type="text" name="name">
+      <input type="text" name="name" required>
       <div class="">
         <button type="submit" name="add" value="category">종류 추가</button>
         <button type="submit" name="add" value="subject">과목 추가</button>

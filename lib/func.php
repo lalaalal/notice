@@ -23,8 +23,8 @@ function articleTitle($title, $right, $type = "head") {
 function articleContent($content) {
   if (isAdmin()) {
     $insert = "
-    <a class=\"admin_tile\" href=\"/admin/form/{$content['no']}\">수정</a>
-    <a class=\"admin_tile\" href=\"/admin/query/2\">삭제</a>\n";
+    <a class=\"admin_tile\" href=\"/admin/form/1{$content['no']}\">수정</a>
+    <a class=\"admin_tile\" href=\"/admin/query/2{$content['no']}\">삭제</a>\n";
   }
   echo "
     <div class=\"content article_tile\">
