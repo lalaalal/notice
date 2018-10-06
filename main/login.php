@@ -4,7 +4,7 @@
       <div class="title"><b>관리자 로그인</b></div>
     </div>
     <div class="content article_tile">
-      <form class="login" action="login.php" method="post">
+      <form class="login" action="/admin/login" method="post">
         <b>아이디</b>
         <input type="text" name="id" placeholder="아이디를 입력하세요." autocomplete="off" required autofocus>
         <b>비밀번호</b>

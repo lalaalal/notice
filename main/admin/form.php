@@ -5,6 +5,7 @@ if (!isAdmin()) {
   header("Location: /login");
 }
 
+$board['start'] = date("Y-m-d");
 if ($_GET['option'] == 1) {
   $query = "SELECT * FROM board WHERE no = {$_GET['param']}";
 

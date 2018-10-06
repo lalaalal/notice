@@ -10,21 +10,18 @@ function isAdmin() {
 }
 
 function articleTitle($title, $right, $type = "head") {
-  if (isAdmin() && $type == "head") {
-    $insert = "<a class=\"admin_tile\" href=\"/admin/form\">추가</a>";
-  }
   echo "
     <div class=\"$type article_tile\">
       <div class=\"title\"><b>$title</b></div>
-      <div class=\"content_right\">{$insert}{$right}</div>
+      <div class=\"content_right\">{$right}</div>
     </div>\n";
 }
 
 function articleContent($content) {
   if (isAdmin()) {
     $insert = "
-    <a class=\"admin_tile\" href=\"/admin/form/1{$content['no']}\">수정</a>
-    <a class=\"admin_tile\" href=\"/admin/query/2{$content['no']}\">삭제</a>\n";
+    <a href=\"/admin/form/1{$content['no']}\"><img src=\"/images/edit.png\" alt=\"cross\"></a>\n
+    <a href=\"/admin/query/2{$content['no']}\"><img src=\"/images/delete.png\" alt=\"cross\"></a>\n";
   }
   echo "
     <div class=\"content article_tile\">

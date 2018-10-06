@@ -31,4 +31,12 @@ $result = $mysqli->query($query);
     }
     ?>
   </article>
+  <?php
+  if (isAdmin()) {
+    echo "
+    <article class=\"rtl\">
+      <a href=\"/admin/form\"><button type=\"button\">글쓰기</button></a>
+    </article>";
+  }
+  ?>
 </main>

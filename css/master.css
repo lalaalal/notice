@@ -118,6 +118,10 @@ main {
   color: black;
 }
 
+.rtl {
+  text-align: right;
+}
+
 /* footer */
 
 .git {
@@ -145,6 +149,7 @@ main {
 img {
   width: 22px;
   margin-right: 10px;
+  user-select: none;
 }
 
 /* login */
