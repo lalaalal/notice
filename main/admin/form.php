@@ -1,7 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'].'/lib/func.php');
-
-if (!isAdmin()) {
+if (!isAdmin($mysqli)) {
   header("Location: /login");
 }
 
@@ -30,7 +28,7 @@ for ($row = 0; $row < sizeof($subject); $row++) {
   if ($subject[$row]['id'] == $board['subject_id']) {
     $selected = "selected";
   }
-  echo "        <option value=\"{$subject[$row]['id']}\" $selected>{$subject[$row]['name']}</option>\n";
+  echo "          <option value=\"{$subject[$row]['id']}\" $selected>{$subject[$row]['name']}</option>\n";
 }
 ?>
         </select>
@@ -42,13 +40,13 @@ for ($row = 0; $row < sizeof($category); $row++) {
   if ($category[$row]['id'] == $board['category_id']) {
     $selected = "selected";
   }
-  echo "        <option value=\"{$category[$row]['id']}\" $selected>{$category[$row]['name']}</option>\n";
+  echo "          <option value=\"{$category[$row]['id']}\" $selected>{$category[$row]['name']}</option>\n";
 }
 ?>
         </select>
       </div>
       <b class="title">내용</b>
-      <textarea name="body" rows="12" style="resize: none" value="<?= $board['body'] ?>"></textarea>
+      <textarea name="body" rows="12" style="resize: none"><?= $board['body'] ?></textarea>
       <input type="file" name="">
       <b class="title">시작, 마감</b>
       <div class="">

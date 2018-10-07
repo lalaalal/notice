@@ -1,12 +1,14 @@
 <?php
-function isAdmin() {
+function isAdmin($mysqli) {
   session_start();
   if (isset($_SESSION['id'])) {
-    return true;
+    $query = "SELECT no, id FROM admin WHERE no = {$_SESSION['no']} AND id = \"{$_SESSION['id']}\"";
+    $res = $mysqli->query($query);
+    if ($res->num_rows == 1) {
+      return true;
+    }
   }
-  else {
-    return false;
-  }
+  return false;
 }
 
 function articleTitle($title, $right, $type = "head") {
@@ -17,8 +19,10 @@ function articleTitle($title, $right, $type = "head") {
     </div>\n";
 }
 
-function articleContent($content) {
-  if (isAdmin()) {
+function articleContent($content, $is_admin = false) {
+  $content['start'] = dateForm($content['start']);
+  $content['deadline'] = dateForm($content['deadline']);
+  if ($is_admin) {
     $insert = "
     <a href=\"/admin/form/1{$content['no']}\"><img src=\"/images/edit.png\" alt=\"cross\"></a>\n
     <a href=\"/admin/query/2{$content['no']}\"><img src=\"/images/delete.png\" alt=\"cross\"></a>\n";
@@ -28,7 +32,7 @@ function articleContent($content) {
       <b class=\"title\">{$content['subject']} | {$content['category']}</b><br>
       {$content['title']}<br>
       <br>
-      {$content['start']} 부터 {$content['deadline']} 까지
+      {$content['deadline']} 까지
       <div class=\"content_right\">{$insert}</div>
     </div>\n";
 }
@@ -48,5 +52,22 @@ function Sorry() {
   <div class=\"notice article_tile\">
     공사중 입니다 -..-
   </div>\n";
+}
+
+function dateForm($datetime) {
+  if (preg_match("/(\d{4})/", date("y"))) {
+    $replacement = "$1년 $2월 $3일";
+  } else {
+    $replacement = "$2월 $3일";
+  }
+
+  $pattern = "/(\d{4})-(\d{2})-(\d{2})/";
+  $res = preg_replace($pattern, $replacement, $datetime);
+
+  $pattern = "/(\d{2}):(\d{2}):(\d{2})/";
+  $replacement = "$1:$2";
+  $res = preg_replace($pattern, $replacement, $res);
+
+  return $res;
 }
 ?>

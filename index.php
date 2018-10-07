@@ -10,6 +10,8 @@ if (!isset($_GET['page'])) {
 } else {
   $proc = $_GET['page'];
 }
+
+require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +46,7 @@ for ($i = 0; $i < $result->num_rows; $i++) {
       <span class="tile">
         <img class="login_icon" src="/images/login.svg" alt="login">
         <?php
-        if (isset($_SESSION['id'])) echo "<a href=\"/admin/manage\">관리 페이지</a>\n";
+        if (isAdmin($mysqli)) echo "<a href=\"/admin/manage\">관리 페이지</a>\n";
         else echo "<a href=\"/login\">반장 로그인</a>\n";
         ?>
       </span>

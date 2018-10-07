@@ -1,6 +1,4 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
-
 $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
 $query = "SELECT * FROM admin WHERE id = \"{$_POST['id']}\"";
 $result = $mysqli->query($query);
@@ -10,6 +8,7 @@ if ($result->num_rows == 1) {
   if (password_verify($_POST['pw'], $row['pw'])) {
     session_start();
     $_SESSION['id'] = $_POST['id'];
+    $_SESSION['no'] = $row['no'];
     header("Location: /home");
   }
 }

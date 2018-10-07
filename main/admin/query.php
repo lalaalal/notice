@@ -1,7 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'].'/lib/func.php');
-
-if (!isAdmin()) {
+if (!isAdmin($mysqli)) {
   header("Location: /home");
 }
 // $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");

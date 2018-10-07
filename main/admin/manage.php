@@ -1,7 +1,5 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'].'/lib/func.php');
-
-if (!isAdmin()) {
+if (!isAdmin($mysqli)) {
   header("Location: /login");
 }
 ?>

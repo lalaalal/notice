@@ -75,6 +75,7 @@ main {
 }
 
 .article_tile {
+  border: 1px solid #cdcdcd;
   display: grid;
   grid-template-areas:
     ". right"
