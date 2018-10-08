@@ -2,12 +2,12 @@
 if (!isAdmin($mysqli)) {
   header("Location: /home");
 }
-// $mysqli = mysqli_connect("localhost", "notice", "isdj_107", "notice");
-
 $pattern = "/(\d{4})-(\d{2})-(\d{2}) ?(\d{2})?:?(\d{2})?:?(\d{2})?/";
 
 $_POST['start'] = preg_replace($pattern, "$1$2$3$4$5$6", $_POST['start']);
 $_POST['deadline'] = preg_replace($pattern, "$1$2$3$4$5$6", $_POST['deadline']);
+
+$err = 0;
 
 switch ($_GET['option']) {
   case '1':
@@ -22,6 +22,11 @@ switch ($_GET['option']) {
     break;
   case '2':
     $query = "DELETE FROM board WHERE no = {$_GET['param']}";
+    $dir = "/mnt/server/".$_GET['param'].'/';
+
+    if (is_dir($dir)) {
+      xrmdir($dir);
+    }
     break;
   case '3':
     $query = "INSERT INTO {$_POST['add']} (name) VALUES (\"{$_POST['name']}\")";
@@ -41,17 +46,39 @@ switch ($_GET['option']) {
               )";
     break;
 }
-// echo $query;
-// exit();
 $result = $mysqli->query($query);
+
+foreach ($_FILES['file']['error'] as $key => $error) {
+  if ($error != UPLOAD_ERR_OK) {
+    $err = $error;
+    continue;
+  }
+
+  if ($_GET['param'] == "") $no = mysqli_insert_id($mysqli);
+  else $no = $_GET['param'];
+
+  $upload_dir = '/mnt/server/'.$no.'/';
+  $upload_file = $upload_dir.basename($_FILES['file']['name'][$key]);
+
+  if (!is_dir($upload_dir)) {
+    mkdir($upload_dir);
+  }
+
+  move_uploaded_file($_FILES['file']['tmp_name'][$key], $upload_file);
+}
 ?>
 
 <main id="short_wrapper">
 <?php
 if ($result == TRUE) {
-  articleTitle($title = "성공적으로 처리되었습니다!", $date = "", $type = "notice");
+  $title = "성공적으로 처리되었습니다!";
 } else {
-  articleTitle($title = "문제가 발생했습니다!", $date = "", $type = "notice");
+  $title = "문제가 발생했습니다!";
+}
+articleTitle($title, $date = "", $type = "notice");
+if ($err != UPLOAD_ERR_OK) {
+  $sub = "파일이 업로드되지 않았습니다.";
+  articleTitle($sub, $date = "", $type = "notice");
 }
 ?>
   <article class="">

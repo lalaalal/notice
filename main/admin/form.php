@@ -16,9 +16,9 @@ if ($_GET['option'] == 1) {
     <div class="notice article_tile">
       <div class="title"><b>내용 추가</b></div>
     </div>
-    <form class="content article_tile form" action="/admin/query/<?= $_GET['option'].$_GET['param'] ?>" method="post">
+    <form class="content article_tile form" enctype="multipart/form-data" action="/admin/query/<?= $_GET['option'].$_GET['param'] ?>" method="post">
       <b class="title">제목</b>
-      <div class="">
+      <div class="horizontal">
         <input type="text" name="title" placeholder="제목을 입력하세요." value="<?= $board['title'] ?>" required>
         <select class="" name="subject_id">
           <option value="">--과목--</option>
@@ -47,9 +47,25 @@ for ($row = 0; $row < sizeof($category); $row++) {
       </div>
       <b class="title">내용</b>
       <textarea name="body" rows="12" style="resize: none"><?= $board['body'] ?></textarea>
-      <input type="file" name="">
+      <script type="text/javascript" src="/lib/script.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <div class="add_file">
+        <button type="button" onclick="add_file()">파일 추가</button>
+        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
+      </div>
+<?php
+if ($_GET['option'] == "1") {
+  $dir = "/mnt/server/".$_GET['param'].'/';
+  $items = scandir($dir);
+  foreach ($items as $item) {
+    if ($item != "." && $item != "..") {
+      echo "<span class=\"title\">".$item."</span>";
+    }
+  }
+}
+?>
       <b class="title">시작, 마감</b>
-      <div class="">
+      <div class="horizontal">
         <input type="datetime" name="start" value="<?= $board['start'] ?>" placeholder="yyyy-mm-dd">
         <input type="datetime" name="deadline" value="<?= $board['deadline'] ?>" placeholder="yyyy-mm-dd" required>
       </div>

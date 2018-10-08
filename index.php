@@ -31,23 +31,23 @@ require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
   </head>
   <body>
     <header>
-      <div class="title tile"><a href="/home">7반 알림장</a></div>
+      <div class="title tile"><a class="tile_link" href="/home">7반 알림장</a></div>
       <nav>
 <!-- category tiles -->
 <?php
 for ($i = 0; $i < $result->num_rows; $i++) {
   $category = mysqli_fetch_assoc($result);
-  echo "        <span class=\"tile\"><a href=\"/search/{$category['id']}\">{$category['name']}</a></span>\n";
+  echo "        <span class=\"tile\"><a class=\"tile_link\" href=\"/search/{$category['id']}\">{$category['name']}</a></span>\n";
 }
 ?>
 <!-- category tiles -->
-        <span class="tile"><a href="/schedule">시간표</a></span>
+        <span class="tile"><a class="tile_link" href="/schedule">시간표</a></span>
       </nav>
       <span class="tile">
         <img class="login_icon" src="/images/login.svg" alt="login">
         <?php
-        if (isAdmin($mysqli)) echo "<a href=\"/admin/manage\">관리 페이지</a>\n";
-        else echo "<a href=\"/login\">반장 로그인</a>\n";
+        if (isAdmin($mysqli)) echo "<a class=\"tile_link\" href=\"/admin/manage\">관리 페이지</a>\n";
+        else echo "<a class=\"tile_link\" href=\"/login\">반장 로그인</a>\n";
         ?>
       </span>
     </header>

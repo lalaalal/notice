@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -56,6 +56,10 @@ nav {
   opacity: 1 !important;
 }
 
+.tile_link {
+  color: white;
+}
+
 /* article */
 
 article:not(:first-child) {
@@ -75,7 +79,7 @@ main {
 }
 
 .article_tile {
-  border: 1px solid #cdcdcd;
+  border: 1px solid #dcdcdc;
   display: grid;
   grid-template-areas:
     ". right"
@@ -88,9 +92,13 @@ main {
 .content {
   margin-top: 5px;
 }
-.content_right {
+.content_left {
   display: flex;
+  flex-direction: column;
+}
+.content_right {
   grid-area: right;
+  display: flex;
   color: #777;
   text-align: right;
   font-size: 14px;
@@ -108,15 +116,6 @@ main {
   color: #215f0c;
   background-color: #d9f0d1;
   font-size: 16px;
-}
-
-.admin_tile {
-  margin: 0 10px;
-  color: gray;
-  font-weight: 500;
-}
-.admin_tile:hover {
-  color: black;
 }
 
 .rtl {
@@ -178,14 +177,7 @@ button {
   font-size: 14px;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
-.form > *:not(:last-child) {
-  margin-bottom: 10px;
-}
-.form div {
+.horizontal {
   display: flex;
   flex-direction: row;
 }
@@ -196,4 +188,22 @@ button {
 select {
   padding: 5px;
   background-color: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.add_file {
+  display: flex;
+  flex-direction: column;
+}
+
+.add_file > button {
+  width: 100px;
 }
