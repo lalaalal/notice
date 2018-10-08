@@ -77,7 +77,7 @@ if ($result == TRUE) {
 }
 articleTitle($title, $date = "", $type = "notice");
 if ($err != UPLOAD_ERR_OK) {
-  $sub = "파일이 업로드되지 않았습니다.";
+  $sub = "업로드되지 않은 파일이 있습니다.";
   articleTitle($sub, $date = "", $type = "notice");
 }
 ?>
