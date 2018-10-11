@@ -25,9 +25,7 @@ if ($_GET['option'] == 1) {
 <?php
 $subject = get_table($mysqli, $type = "subject");
 for ($row = 0; $row < sizeof($subject); $row++) {
-  if ($subject[$row]['id'] == $board['subject_id']) {
-    $selected = "selected";
-  }
+  $subject[$row]['id'] == $board['subject_id'] ? $selected = "selected" : $selected = "";
   echo "          <option value=\"{$subject[$row]['id']}\" $selected>{$subject[$row]['name']}</option>\n";
 }
 ?>
@@ -37,9 +35,7 @@ for ($row = 0; $row < sizeof($subject); $row++) {
 <?php
 $category = get_table($mysqli, $type = "category");
 for ($row = 0; $row < sizeof($category); $row++) {
-  if ($category[$row]['id'] == $board['category_id']) {
-    $selected = "selected";
-  }
+  $category[$row]['id'] == $board['category_id'] ? $selected = "selected" : $selected = "";
   echo "          <option value=\"{$category[$row]['id']}\" $selected>{$category[$row]['name']}</option>\n";
 }
 ?>

@@ -57,7 +57,7 @@ function Sorry() {
 }
 
 function dateForm($datetime) {
-  if (preg_match("/(\d{4})/", date("y"))) {
+  if (substr($datetime, 0, 4) != date("Y")) {
     $replacement = "$1년 $2월 $3일";
   } else {
     $replacement = "$2월 $3일";
