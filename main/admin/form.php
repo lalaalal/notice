@@ -47,7 +47,6 @@ for ($row = 0; $row < sizeof($category); $row++) {
       <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
       <div class="add_file">
         <button type="button" onclick="add_file()">파일 추가</button>
-        <input type="hidden" name="MAX_FILE_SIZE" value="100000">
       </div>
 <?php
 if ($_GET['option'] == "1") {

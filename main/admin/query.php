@@ -57,6 +57,7 @@ foreach ($_FILES['file']['error'] as $key => $error) {
   if ($_GET['param'] == "") $no = mysqli_insert_id($mysqli);
   else $no = $_GET['param'];
 
+  setlocale(LC_ALL,'ko_KR.UTF-8');  
   $upload_dir = '/mnt/server/'.$no.'/';
   $upload_file = $upload_dir.basename($_FILES['file']['name'][$key]);
 
