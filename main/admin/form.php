@@ -4,6 +4,7 @@ if (!isAdmin($mysqli)) {
 }
 
 $board['start'] = date("Y-m-d");
+$board['deadline'] = date("Y-m-d");
 if ($_GET['option'] == 1) {
   $query = "SELECT * FROM board WHERE no = {$_GET['param']}";
 
@@ -42,11 +43,10 @@ for ($row = 0; $row < sizeof($category); $row++) {
         </select>
       </div>
       <b class="title">내용</b>
-      <textarea name="body" rows="12" style="resize: none"><?= $board['body'] ?></textarea>
+      <textarea name="body" rows="18" style="resize: none"><?= $board['body'] ?></textarea>
       <script type="text/javascript" src="/lib/script.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
       <div class="add_file">
-        <button type="button" onclick="add_file()">파일 추가</button>
+        <div><button type="button" onclick="add_file()">파일 추가</button></div>
       </div>
 <?php
 if ($_GET['option'] == "1") {

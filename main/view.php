@@ -24,17 +24,24 @@ $host = "https://storage.isdj.ga/";
 $dir = "/mnt/server/".$content['no'];
 
 $files = scandir($dir);
-
-foreach ($files as $file) {
-  if ($file != "." && $file != "..") {
-    echo "<a href=\"{$host}{$content['no']}/{$file}\" target=\"_blank\">{$file}</a>";
-  }
-}
 ?>
       </div>
       <div class="content_right">
         <?= $content['start'] ?> 부터<br><br>
         <?= $content['deadline'] ?> 까지
+      </div>
+    </div>
+    <div class="article_tile content">
+      <div class="content_left">
+        <div class="">
+<?php
+foreach ($files as $file) {
+  if ($file != "." && $file != "..") {
+    echo "<a href=\"{$host}{$content['no']}/{$file}\" target=\"_blank\"><button type=\"button\">{$file}</button></a>\n";
+  }
+}
+?>
+        </div>
       </div>
     </div>
   </article>

@@ -170,7 +170,7 @@ input {
 /* etc */
 
 button {
-  border: 0;
+  border: 1px solid #1a5dca;
   color: #fff;
   background-color: #1a6dca;
   padding: 10px;
@@ -202,8 +202,26 @@ select {
 .add_file {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 }
 
-.add_file > button {
-  width: 100px;
+.file_path {
+  flex-grow: 1;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #bbb;
+}
+
+.select_file {
+  display: flex;
+  flex-direction: row;
+  margin: 1px 0;
+}
+
+input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  height: 36px;
 }
