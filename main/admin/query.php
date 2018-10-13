@@ -57,7 +57,7 @@ foreach ($_FILES['file']['error'] as $key => $error) {
   if ($_GET['param'] == "") $no = mysqli_insert_id($mysqli);
   else $no = $_GET['param'];
 
-  setlocale(LC_ALL,'ko_KR.UTF-8');  
+  setlocale(LC_ALL,'ko_KR.UTF-8');
   $upload_dir = '/mnt/server/'.$no.'/';
   $upload_file = $upload_dir.basename($_FILES['file']['name'][$key]);
 
@@ -66,6 +66,15 @@ foreach ($_FILES['file']['error'] as $key => $error) {
   }
 
   move_uploaded_file($_FILES['file']['tmp_name'][$key], $upload_file);
+}
+foreach ($_POST['delete'] as $key => $fname) {
+  setlocale(LC_ALL,'ko_KR.UTF-8');
+
+  $no = $_GET['param'];
+  $delete_dir = '/mnt/server/'.$no.'/';
+  $delete_file = $delete_dir.basename($fname);
+
+  unlink($delete_file);
 }
 ?>
 

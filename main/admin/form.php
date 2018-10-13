@@ -48,17 +48,23 @@ for ($row = 0; $row < sizeof($category); $row++) {
       <div class="add_file">
         <div><button type="button" onclick="add_file()">파일 추가</button></div>
       </div>
+      <div class="delete_file">
 <?php
 if ($_GET['option'] == "1") {
   $dir = "/mnt/server/".$_GET['param'].'/';
   $items = scandir($dir);
   foreach ($items as $item) {
     if ($item != "." && $item != "..") {
-      echo "<span class=\"title\">".$item."</span>";
+      echo "
+        <div class=\"select_file\">
+          <div class=\"file_name\">".$item."</div>
+          <img src=\"/images/delete.png\" alt=\"delete\" onclick=\"delete_file(this, path='$item')\">
+        </div>";
     }
   }
 }
 ?>
+      </div>
       <b class="title">시작, 마감</b>
       <div class="horizontal">
         <input type="datetime" name="start" value="<?= $board['start'] ?>" placeholder="yyyy-mm-dd">
