@@ -2,10 +2,8 @@
 if (!isAdmin($mysqli)) {
   header("Location: /home");
 }
-$pattern = "/(\d{4})-(\d{2})-(\d{2}) ?(\d{2})?:?(\d{2})?:?(\d{2})?/";
-
-$_POST['start'] = preg_replace($pattern, "$1$2$3$4$5$6", $_POST['start']);
-$_POST['deadline'] = preg_replace($pattern, "$1$2$3$4$5$6", $_POST['deadline']);
+$_POST['start'] = date("Ymd", strtotime($_POST['start']));
+$_POST['deadline'] = date("Ymd", strtotime($_POST['deadline']));
 
 $_POST['title'] = mysqli_real_escape_string($mysqli, $_POST['title']);
 $_POST['body'] = mysqli_real_escape_string($mysqli, $_POST['body']);

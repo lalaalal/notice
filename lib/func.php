@@ -58,19 +58,10 @@ function Sorry() {
 
 function dateForm($datetime) {
   if (substr($datetime, 0, 4) != date("Y")) {
-    $replacement = "$1년 $2월 $3일";
+    return date("Y년 m월 d일", strtotime($datetime));
   } else {
-    $replacement = "$2월 $3일";
+    return date("m월 d일", strtotime($datetime));
   }
-
-  $pattern = "/(\d{4})-(\d{2})-(\d{2})/";
-  $res = preg_replace($pattern, $replacement, $datetime);
-
-  $pattern = "/(\d{2}):(\d{2}):(\d{2})/";
-  $replacement = "$1:$2";
-  $res = preg_replace($pattern, $replacement, $res);
-
-  return $res;
 }
 
 function xrmdir($dir) {
