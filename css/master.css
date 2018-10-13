@@ -2,7 +2,6 @@
 
 * {
   box-sizing: border-box;
-  transition-duration: 0.4s;
   font-family: 'Nanum Gothic', sans-serif;
 }
 
@@ -11,11 +10,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-a {
-  color: black;
-  text-decoration: none;
 }
 
 /* header */
@@ -51,6 +45,7 @@ nav {
   margin: 15px;
   cursor: default;
   user-select: none;
+  transition-duration: 0.4s;
 }
 .tile:hover {
   opacity: 1 !important;
@@ -58,68 +53,6 @@ nav {
 
 .tile_link {
   color: white;
-}
-
-/* article */
-
-article:not(:first-child) {
-  margin-top: 15px;
-}
-
-main {
-  display: grid;
-  width: 850px;
-  margin-top: 25px;
-  padding: 15px;
-  border: 1px solid #bbb;
-  background-color: #eee;
-}
-#short_wrapper {
-  width: 400px;
-}
-
-.article_tile {
-  border: 1px solid #dcdcdc;
-  display: grid;
-  grid-template-areas:
-    ". right"
-    ". right";
-  grid-template-columns: 1fr;
-  background-color: #ddd;
-  font-size: 14px;
-  padding: 10px;
-}
-.content {
-  margin-top: 5px;
-}
-.content_left {
-  display: flex;
-  flex-direction: column;
-}
-.content_right {
-  grid-area: right;
-  display: flex;
-  color: #777;
-  text-align: right;
-  font-size: 14px;
-  align-items: center;
-  justify-content: center;
-}
-
-.notice {
-  color: #502c61;
-  background-color: #ebddf1 !important;
-  font-size: 16px;
-}
-
-.head {
-  color: #215f0c;
-  background-color: #d9f0d1;
-  font-size: 16px;
-}
-
-.rtl {
-  text-align: right;
 }
 
 /* footer */
@@ -152,22 +85,12 @@ img {
   user-select: none;
 }
 
-/* login */
-
-.login {
-  display: grid;
-  grid-row-gap: 10px;
-}
-
-.login b {
-  padding-left: 5px;
-}
-
-input {
-  padding: 5px;
-}
-
 /* etc */
+
+a {
+  color: black;
+  text-decoration: none;
+}
 
 button {
   border: 1px solid #1a5dca;
@@ -181,8 +104,9 @@ button {
   display: flex;
   flex-direction: row;
 }
-.form input {
-  flex-grow: 1;
+
+input {
+  padding: 5px;
 }
 
 select {
@@ -190,38 +114,8 @@ select {
   background-color: white;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
+/* article home.css */
 
-.form > *:not(:last-child) {
-  margin-bottom: 10px;
-}
+/* login login.css*/
 
-.add_file {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.file_path {
-  flex-grow: 1;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border: 1px solid #bbb;
-}
-
-.select_file {
-  display: flex;
-  flex-direction: row;
-  margin: 1px 0;
-}
-
-input[type="file"] {
-  position: absolute;
-  opacity: 0;
-  height: 36px;
-}
+/* form form.css */

@@ -24,6 +24,7 @@ require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
     <meta name="author" content="협창쓰">
     <meta name="language" content="ko">
     <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/<?= $proc ?>.css">
     <link rel="manifest" href="/fav/manifest.json">
     <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">

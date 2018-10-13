@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@import "/css/home.css";
+
+.login {
+  display: grid;
+  grid-row-gap: 10px;
+}
+
+.login b {
+  padding-left: 5px;
+}
