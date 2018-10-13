@@ -10,6 +10,8 @@ $content = mysqli_fetch_assoc($result);
 $content['start'] = dateForm($content['start']);
 $content['deadline'] = dateForm($content['deadline']);
 $content['date'] = dateForm($content['date']);
+
+$content['body'] = preg_replace("/\n/", "<br>", $content['body']);
 ?>
 
 <main>
