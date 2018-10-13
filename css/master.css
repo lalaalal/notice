@@ -58,6 +58,7 @@ nav {
 /* footer */
 
 .git {
+  width: 22px;
   user-select: none;
   margin: 20px;
   display: flex;
@@ -81,6 +82,7 @@ nav {
 }
 img {
   width: 22px;
+  height: 24px;
   margin-right: 10px;
   user-select: none;
 }

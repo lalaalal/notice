@@ -9,6 +9,9 @@ if ($_GET['option'] == 1) {
   $query = "SELECT * FROM board WHERE no = {$_GET['param']}";
 
   $result = $mysqli->query($query);
+  if ($result->num_rows == 0) {
+    header("Location: /admin/query");
+  }
   $board = mysqli_fetch_assoc($result);
 }
 ?>
