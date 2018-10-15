@@ -13,7 +13,9 @@ $result = $mysqli->query($query);
 ?>
 <main>
   <article class="">
-    <?php articleTitle($title = '공지 | 안녕하세요~!~!~!', $date = "09월 22일", $type = 'notice');?>
+    <div class="notice article_tile">
+      <b>chrome 브러우저 권장</b>
+    </div>
   </article>
   <article class="">
 <?php
