@@ -27,7 +27,7 @@ require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
     <link rel="stylesheet" href="/css/<?= $proc ?>.css">
     <link rel="manifest" href="/fav/manifest.json">
     <link rel="icon" type="image/png" sizes="96x96" href="/fav/favicon-96x96.png">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/young-ha/webfont-archive/master/css/Godo.css" rel="stylesheet" type="text/css">
     <title>7반 알림장</title>
   </head>
   <body>
