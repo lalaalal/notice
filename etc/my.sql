@@ -19,13 +19,13 @@ CREATE TABLE board (
 
 CREATE TABLE subject (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` CHAR(8),
+  `name` CHAR(24),
   PRIMARY KEY(id)
 );
 
 CREATE TABLE category (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` CHAR(8),
+  `name` CHAR(24),
   PRIMARY KEY(id)
 );
 
