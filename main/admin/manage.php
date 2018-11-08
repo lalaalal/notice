@@ -31,7 +31,7 @@ for ($row = 0; $row < sizeof($subject) ; $row++) {
     </form>
     <form class="content article_tile" action="/admin/query/3" method="post">
       <input type="text" name="name" required>
-      <div class="">
+      <div>
         <button type="submit" name="add" value="category">종류 추가</button>
         <button type="submit" name="add" value="subject">과목 추가</button>
       </div>

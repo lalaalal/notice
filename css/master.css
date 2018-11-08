@@ -109,6 +109,7 @@ button {
 
 input {
   padding: 5px;
+  min-width: 100px;
 }
 
 select {
