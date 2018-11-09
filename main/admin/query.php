@@ -47,6 +47,7 @@ switch ($_GET['option']) {
               )";
     break;
 }
+//echo $query;
 $result = $mysqli->query($query);
 
 foreach ($_FILES['file']['error'] as $key => $error) {

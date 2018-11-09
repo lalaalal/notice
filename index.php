@@ -38,7 +38,7 @@ require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
 <?php
 for ($i = 0; $i < $result->num_rows; $i++) {
   $category = mysqli_fetch_assoc($result);
-  echo "        <span class=\"tile\"><a class=\"tile_link\" href=\"/search/{$category['id']}\">{$category['name']}</a></span>\n";
+  echo "        <span class=\"tile\"><a class=\"tile_link\" href=\"/search/0{$category['id']}\">{$category['name']}</a></span>\n";
 }
 ?>
 <!-- category tiles -->
