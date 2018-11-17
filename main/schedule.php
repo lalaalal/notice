@@ -8,8 +8,8 @@
     </div>
     <div class="article_tile content schedule">
 <?php
-$monday = date("Ymd", strtotime(1 - date('w')." days"));
-$friday = date("Ymd", strtotime(6 - date('w')." days"));
+$_GET['param'] == "" ? $week = "this" : $week = $_GET['param'];
+$weekday = array('월', '화', '수', '목', '금');
 
 $query = "SELECT * FROM board
           WHERE deadline >= $monday AND deadline <= $friday
@@ -17,14 +17,23 @@ $query = "SELECT * FROM board
 
 $schedule = json_decode(file_get_contents('/mnt/server/schedule/comci.json'), true);
 
+echo "<div>\n";
+echo "<br><br>\n";
+for ($i = 1; $i <= 7; $i++) {
+  echo "<p>".$i."교시</p>\n";
+}
+
+echo "</div>\n";
+
 for ($i = 0; $i < 5; $i++) {
-  echo "<div>";
+  echo "<div>\n";
+  echo "<p>{$weekday[$i]}요일</p>\n";
   for ($j = 0; $j < 7; $j++) {
-    if ($schedule[0][$i][$j][0] == "56") {
+    if ($schedule[$week]["schedule"][$i][$j][0] == "56") {
       break;
     }
-    echo $schedule[0][$i][$j][0]." : ";
-    echo $schedule[0][$i][$j][1]."<br>\n";
+    echo "<p>".$schedule[$week]["schedule"][$i][$j][0]."<br>\n";
+    echo $schedule[$week]["schedule"][$i][$j][1]."</p>\n";
   }
   echo "</div>\n";
 }
