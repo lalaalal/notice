@@ -1,3 +1,10 @@
+SET GLOBAL VALIDATE_PASSWORD_POLICY = LOW;
+
+GRANT INSERT, SELECT, DELETE, UPDATE ON notice.* TO notice@localhsot IDENTIFIED BY 'isdj_107';
+
+CREATE DATABASE notice;
+USE notice;
+
 CREATE TABLE admin (
   `no` INT NOT NULL AUTO_INCREMENT,
   `id` VARCHAR(24) NOT NULL,
@@ -29,8 +36,8 @@ CREATE TABLE category (
   PRIMARY KEY(id)
 );
 
-SELECT no, title, subject.name AS subject, body, category.name AS category, start, deadline, DATE(date) as date
-FROM board
-LEFT JOIN category ON category_id = category.id
-LEFT JOIN subject ON subject_id = subject.id
-WHERE deadline >= NOW()
+-- SELECT no, title, subject.name AS subject, body, category.name AS category, start, deadline, DATE(date) as date
+-- FROM board
+-- LEFT JOIN category ON category_id = category.id
+-- LEFT JOIN subject ON subject_id = subject.id
+-- WHERE deadline >= NOW()
