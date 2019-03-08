@@ -5,7 +5,7 @@ ErrorDocument 404 /etc/404.html
 ErrorDocument 500 /etc/500.html
 
 RewriteCond %{SERVER_NAME} ^[^(localhost)] [NC]
-RewriteRule (add_admin|home|login|logout|search|schedule|view)\.php$ - [F]
+RewriteRule (add_admin|home|login|search|schedule|view)\.php$ - [F]
 
 RewriteRule ^(admin\/[a-z]+|[a-z]+)\/?([0-9])?([a-z0-9]+)?$ \/index.php?page=$1&option=$2&param=$3 [PT]
 RewriteRule ^([0-9]{3})$ \/etc/$1.html [PT]
