@@ -37,8 +37,10 @@ for ($i = 0; $i < 5; $i++) {
   }
   echo "</div>\n";
 }
-
 ?>
     </div>
+    <button onclick="location.href='https://isdj.ga/schedule/this'">이번주</button>
+    <button onclick="location.href='https://isdj.ga/schedule/next'">다음주</button>
   </article>
+
 </main>

@@ -6,7 +6,7 @@ $query = "SELECT no, title, subject.name AS subject, body, category.name AS cate
           FROM board
           LEFT JOIN category ON category_id = category.id
           LEFT JOIN subject ON subject_id = subject.id
-          WHERE DATE(date) = CURDATE()
+          WHERE DATE(deadline) = DATE(CURDATE() + 1)
           ORDER BY deadline ASC";
 
 $result = $mysqli->query($query);
@@ -14,7 +14,7 @@ $result = $mysqli->query($query);
 <main>
   <article class="">
     <div class="notice article_tile">
-      <b>chrome 브러우저 권장</b>
+      <b>chrome 브라우저 권장</b>
     </div>
   </article>
   <article class="">
@@ -43,6 +43,8 @@ $query = "SELECT no, title, subject.name AS subject, body, category.name AS cate
           LEFT JOIN category ON category_id = category.id
           LEFT JOIN subject ON subject_id = subject.id
           WHERE deadline >= NOW() AND DATE(date) != CURDATE()
+          OR DATE(deadline) = CURDATE()
+	  AND DATE(deadline) != DATE(CURDATE() + 1)
           ORDER BY deadline ASC";
 $result = $mysqli->query($query);
 $content = mysqli_fetch_assoc($result);

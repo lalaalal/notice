@@ -19,7 +19,7 @@ require($_SERVER['DOCUMENT_ROOT']."/lib/func.php");
   <head>
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no"> -->
-    <meta name="description" content="일산 대진 고등학교 1학년 7반 알림장">
+    <meta name="description" content="일산 대진 고등학교 2학년 7반 알림장">
     <meta name="keywords" content="대진고, 알림장, 7반">
     <meta name="author" content="협창쓰">
     <meta name="language" content="ko">
