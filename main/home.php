@@ -42,8 +42,8 @@ $query = "SELECT no, title, subject.name AS subject, body, category.name AS cate
           FROM board
           LEFT JOIN category ON category_id = category.id
           LEFT JOIN subject ON subject_id = subject.id
-          WHERE deadline >= NOW() AND DATE(date) != CURDATE()
-          OR DATE(deadline) = CURDATE()
+		  WHERE deadline >= NOW() 
+		  OR DATE(deadline) = CURDATE()
 	  AND DATE(deadline) != DATE(CURDATE() + 1)
           ORDER BY deadline ASC";
 $result = $mysqli->query($query);

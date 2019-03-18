@@ -11,11 +11,6 @@ $res = $mysqli->query($query);
 
 <main>
   <article class="">
-<?php
-for ($i = 0; $i < $res->num_rows; $i++) {
-  $row = mysqli_fetch_assoc($res);
-  echo $row['title']."<br>";
-}
- ?>
+  <?php Sorry(); ?>
   </article>
 </main>
