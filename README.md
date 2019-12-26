@@ -4,7 +4,7 @@ Apache, php, mysql
 
 https://github.com/lalaalal/notice/blob/release/etc/my.sql
 
-INSERT QUERY
+## INSERT QUERY
 ```
 $insert_query = "INSERT INTO {$_POST['add']} (name) VALUES (\"{$_POST['name']}\")";
 ```
@@ -21,7 +21,7 @@ $insert_board_query = "INSERT INTO board (title, subject_id, category_id, body, 
               )";
 ```
 
-UPDATE QUERY
+## UPDATE QUERY
 ```
 $update_board_query = "UPDATE board SET
               title = \"{$_POST['title']}\",
@@ -33,12 +33,12 @@ $update_board_query = "UPDATE board SET
               WHERE no = {$_GET['param']}";
 ```
 
-DELETE QUERY
+## DELETE QUERY
 ```
 $delete_board_query = "DELETE FROM board WHERE no = {$_GET['param']}";
 ```
 
-SELECT
+## SELECT
 ```
 SELECT no, title, subject.name AS subject, body, category.name AS category, start, deadline, DATE(date) as date
 FROM board
