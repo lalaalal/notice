@@ -6,6 +6,7 @@ https://github.com/lalaalal/notice/blob/release/etc/my.sql
 
 $insert_query = "INSERT INTO {$_POST['add']} (name) VALUES (\"{$_POST['name']}\")";
 
+```
 $update_board_query = "UPDATE board SET
               title = \"{$_POST['title']}\",
               subject_id = {$_POST['subject_id']},
@@ -14,6 +15,7 @@ $update_board_query = "UPDATE board SET
               start = {$_POST['start']},
               deadline = {$_POST['deadline']}
               WHERE no = {$_GET['param']}";
+```
 
 $insert_board_query = "INSERT INTO board (title, subject_id, category_id, body, start, deadline)
               VALUES (
