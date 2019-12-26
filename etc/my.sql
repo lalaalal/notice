@@ -9,19 +9,8 @@ CREATE TABLE admin (
   `no` INT NOT NULL AUTO_INCREMENT,
   `id` VARCHAR(24) NOT NULL,
   `pw` VARCHAR(64) NOT NULL,
-  PRIMARY KEY(no, id)
-);
-
-CREATE TABLE board (
-  `no` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(100) NOT NULL,
-  `subject_id` INT NOT NULL,
-  `body` TEXT NULL,
-  `category_id` INT NOT NULL,
-  `start` DATETIME NULL,
-  `deadline` DATETIME NOT NULL,
-  `date` DATETIME NOT NULL DEFAULT NOW(),
-  PRIMARY KEY(no)
+  PRIMARY KEY(no),
+  UNIQUE KEY(id)
 );
 
 CREATE TABLE subject (
@@ -34,6 +23,20 @@ CREATE TABLE category (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` CHAR(24),
   PRIMARY KEY(id)
+);
+
+CREATE TABLE board (
+  `no` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `subject_id` INT NOT NULL,
+  `body` TEXT NULL,
+  `category_id` INT NOT NULL,
+  `start` DATETIME NULL,
+  `deadline` DATETIME NOT NULL,
+  `date` DATETIME NOT NULL DEFAULT NOW(),
+  PRIMARY KEY(no),
+  CONSTRAINT subject_fk FOREIGN KEY(subject_id) REFERENCES subject(id) ON DELETE CASCADE,
+  CONSTRAINT category_fk FOREIGN KEY(category_id) REFERENCES category(id) ON DELETE CASCADE
 );
 
 -- SELECT no, title, subject.name AS subject, body, category.name AS category, start, deadline, DATE(date) as date
